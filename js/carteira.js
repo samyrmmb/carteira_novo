@@ -15,7 +15,6 @@ let moeda = new Intl.NumberFormat("pt-BR", {
   currency: "BRL"
 });
 
-
 function lerArquivoAtivos() {
   ativos = new Map();
   const input = document.getElementById('fileInput');
@@ -255,24 +254,6 @@ function saveCarteiraTeoricaStorage() {
   localStorage.setItem("teorica",storedAtivos);
 }
 
-function initialState(){
-  let testAtivos = localStorage.getItem("ativos");
-  let testTeorica = localStorage.getItem("teorica");
-  
-  if(testAtivos){
-    jsonAtivos = JSON.parse(testAtivos);
-    ativos = new Map(Object.entries(jsonAtivos));
-  } 
-
-  if(testTeorica){
-    jsonTeorica = JSON.parse(testTeorica);
-    ativosCarteiraTeorica = new Map(Object.entries(jsonTeorica));
-  } 
-
-  mensagemInicial();
-
-}
-
 function mensagemInicial(){
   let tabelaAtivos = document.getElementById('tabela_ativos')
   let mensagem = `<h1> Carteira de Ativos </h1>
@@ -280,4 +261,3 @@ function mensagemInicial(){
   tabelaAtivos.innerHTML = mensagem;
 }
 
-initialState();
